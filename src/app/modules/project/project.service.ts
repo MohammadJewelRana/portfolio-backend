@@ -20,7 +20,7 @@ const createProjectIntoDB = async (payload: TProject) => {
 };
 
 const getAllProjectFromDB = async () => {
-  const result = await Project.find();
+  const result = await Project.find().sort({createdAt:-1});
   if (!result) {
     return new AppError(
       httpStatus.BAD_REQUEST,
